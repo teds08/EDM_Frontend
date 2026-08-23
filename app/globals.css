@@ -15,6 +15,12 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: theme("colors.ink-faint") theme("colors.paper");
+}
+
 @layer components {
   /* Punch-hole perforated edge on the scan manifest ticket */
   .manifest-perforation {
