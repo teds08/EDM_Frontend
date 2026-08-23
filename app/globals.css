@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Punch-hole perforated edge on the scan manifest ticket */
+  .manifest-perforation {
+    position: relative;
+  }
+  .manifest-perforation::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background-image: radial-gradient(
+      circle 3px,
+      theme("colors.paper") 3px,
+      transparent 3.5px
+    );
+    background-size: 14px 16px;
+    background-position: 0 6px;
+  }
+
+  /* Corner tick marks on the upload dropzone */
+  .upload-corners {
+    position: relative;
+  }
+  .upload-corners::before,
+  .upload-corners::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid theme("colors.ink-faint");
+  }
+  .upload-corners::before {
+    top: -1.5px;
+    left: -1.5px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .upload-corners::after {
+    bottom: -1.5px;
+    right: -1.5px;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Dashed inner ring on the inspection stamp */
+  .stamp-ring {
+    position: relative;
+  }
+  .stamp-ring::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 9999px;
+    border: 1.5px dashed currentColor;
+    opacity: 0.55;
+  }
+}
