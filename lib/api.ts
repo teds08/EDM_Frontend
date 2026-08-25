@@ -7,8 +7,7 @@ import {
 } from "./types";
 
 // Point this at your Express server.
-export const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:5000/api";
+export const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 
 export async function scanCsv(file: File): Promise<ScanResponse> {
   const formData = new FormData();
