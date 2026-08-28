@@ -18,9 +18,9 @@ const GUIDANCE: Record<keyof IssueCategories, CategoryGuidance> = {
   },
   invalidDates: {
     label: "Invalid dates",
-    fix: "Normalize date fields to a single ISO 8601 format and reject unparseable values at ingestion.",
+    fix: "Normalize date fields to a single MM-DD-YYYY format and reject unparseable values at ingestion.",
     policy:
-      "Adopt a canonical date standard (ISO 8601) enforced by schema validation across all sources.",
+      "Adopt a canonical date standard (MM-DD-YYYY) enforced by schema validation across all sources.",
   },
   invalidEmails: {
     label: "Invalid emails",
@@ -61,7 +61,7 @@ export function RemediationTips({ categories }: RemediationTipsProps) {
 
   const policies = Array.from(
     new Set(active.map((key) => GUIDANCE[key].policy)),
-  ).slice(0, 3);
+  );
 
   return (
     <div className="mb-[34px]">
