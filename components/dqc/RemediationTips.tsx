@@ -18,9 +18,9 @@ const GUIDANCE: Record<keyof IssueCategories, CategoryGuidance> = {
   },
   invalidDates: {
     label: "Invalid dates",
-    fix: "Normalize date fields to a single MM-DD-YYYY format and reject unparseable values at ingestion.",
+    fix: "Normalize date fields to a single format — MM-DD-YYYY or YYYY-MM-DD (with hyphens or slashes) — and reject unparseable values at ingestion.",
     policy:
-      "Adopt a canonical date standard (MM-DD-YYYY) enforced by schema validation across all sources.",
+      "Adopt a canonical date standard (MM-DD-YYYY or YYYY-MM-DD, with hyphens or slashes) enforced by schema validation across all sources.",
   },
   invalidEmails: {
     label: "Invalid emails",
